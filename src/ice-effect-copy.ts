@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import { EffectConfig } from "./types";
 import { ParticleSystemConfig } from "@newkrok/three-particles";
 
