@@ -23,10 +23,10 @@ export const createScene = () => {
   camera.position.set(5, 5, 2);
   camera.lookAt(0, 0, 0);
 
-  const ambientLight = new THREE.AmbientLight(0x404040);
+  const ambientLight = new THREE.AmbientLight(0x404040, 20);
   scene.add(ambientLight);
 
-  const light = new THREE.PointLight(0xffffff, 1, 0);
+  const light = new THREE.PointLight(0xffffff, 20, 0);
   light.position.set(0, 2, 0);
   scene.add(light);
 
