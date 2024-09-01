@@ -7,22 +7,22 @@
     "build": "webpack --config ./webpack.prod.js"
   },
   "devDependencies": {
-    "@types/express": "4.17.17",
-    "@types/node": "20.5.1",
-    "@types/three": "0.155.0",
+    "@types/express": "4.17.21",
+    "@types/node": "22.5.2",
+    "@types/three": "0.168.0",
     "@newkrok/three-particles": "1.0.3",
-    "three": "0.155.0",
-    "ts-loader": "9.4.4",
-    "typescript": "5.1.6",
-    "webpack": "5.88.2",
+    "three": "0.168.0",
+    "ts-loader": "9.5.1",
+    "typescript": "5.5.4",
+    "webpack": "5.94.0",
     "webpack-cli": "5.1.4",
-    "webpack-dev-server": "4.15.1",
-    "webpack-merge": "5.9.0",
-    "gsap": "3.12.2",
-    "mini-css-extract-plugin": "2.7.6",
-    "terser-webpack-plugin": "5.3.9"
+    "webpack-dev-server": "5.0.4",
+    "webpack-merge": "6.0.1",
+    "gsap": "3.12.5",
+    "mini-css-extract-plugin": "2.9.1",
+    "terser-webpack-plugin": "5.3.10"
   },
   "dependencies": {
-    "express": "4.18.2"
+    "express": "4.19.2"
   }
 }
