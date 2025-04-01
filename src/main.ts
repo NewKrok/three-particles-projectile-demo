@@ -88,7 +88,7 @@ const shoot = () => {
   initEffect.instance.position.copy(projectile.config.position);
   initEffect.instance.rotation.copy(weapon.rotation);
   scene.add(initEffect.instance);
-  gsap.delayedCall(1, initEffect.dispose);
+  gsap.delayedCall(5, initEffect.dispose);
 
   gsap.to(weaponTurret.position, {
     duration: 0.1,
