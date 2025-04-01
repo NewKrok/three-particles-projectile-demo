@@ -32,29 +32,39 @@ const init: ParticleSystemConfig = {
   renderer: { blending: "THREE.NormalBlending" },
   sizeOverLifetime: {
     isActive: true,
-    bezierPoints: [
-      { x: 0, y: 0.275, percentage: 0 },
-      { x: 0.1666, y: 0.4416 },
-      { x: 0.3399, y: 0.3283 },
-      { x: 0.5066, y: 0.495, percentage: 0.5066 },
-      { x: 0.6732, y: 0.6616 },
-      { x: 0.8333, y: 0.8333 },
-      { x: 1, y: 1, percentage: 1 },
-    ],
+    lifetimeCurve: 
+    {
+      type: 'BEZIER',
+      bezierPoints: [
+        { x: 0, y: 0.275, percentage: 0 },
+        { x: 0.1666, y: 0.4416 },
+        { x: 0.3399, y: 0.3283 },
+        { x: 0.5066, y: 0.495, percentage: 0.5066 },
+        { x: 0.6732, y: 0.6616 },
+        { x: 0.8333, y: 0.8333 },
+        { x: 1, y: 1, percentage: 1 },
+      ],
+      scale: 1
+    }
   },
   opacityOverLifetime: {
     isActive: true,
-    bezierPoints: [
-      { x: 0, y: 0, percentage: 0 },
-      { x: 0, y: 1 },
-      { x: 0, y: 1 },
-      { x: 0.5, y: 1, percentage: 0.5 },
-      { x: 1, y: 1 },
-      { x: 1, y: 1 },
-      { x: 1, y: 0, percentage: 1 },
-    ],
+    lifetimeCurve: 
+    {
+      type: 'BEZIER',
+      bezierPoints: [
+        { x: 0, y: 0, percentage: 0 },
+        { x: 0, y: 1 },
+        { x: 0, y: 1 },
+        { x: 0.5, y: 1, percentage: 0.5 },
+        { x: 1, y: 1 },
+        { x: 1, y: 1 },
+        { x: 1, y: 0, percentage: 1 },
+      ],
+      scale: 1
+    }
   },
-  rotationOverLifetime: { isActive: true, min: -198.9, max: 289.4 },
+  rotationOverLifetime: { isActive: true, min: -10, max: 10 },
   _editorData: {
     textureId: "FLAME",
     simulation: {
@@ -77,11 +87,53 @@ const init: ParticleSystemConfig = {
 };
 
 const movement: ParticleSystemConfig = {
-  startLifetime: { min: 0.4, max: 0.8 },
-  startSpeed: { min: 0, max: 0 },
-  startSize: { min: 3, max: 4 },
-  startRotation: { min: -360, max: 360 },
-  startColor: {
+  duration: 100,
+  startLifetime:  {
+    type: 'BEZIER',
+    scale: 1,
+    bezierPoints: [
+      { x: 0, y: 0.275, percentage: 0 },
+      { x: 0.5, y: 0.5 },
+      { x: 1, y: 1, percentage: 1 }
+    ]
+  } ,
+   startSpeed: {
+    type: 'BEZIER',
+    bezierPoints: [
+      { x: 0, y: 1, percentage: 0 },
+      { x: 1, y: 1, percentage: 0.8 },
+      { x: 1, y: 0, percentage: 1 }
+    ],
+    scale: 1
+  }, 
+  startSize: {
+    type: 'BEZIER',
+    bezierPoints: [
+      { x: 0, y: 4, percentage: 0 },
+      { x: 1, y: 2, percentage: 0.5 },
+      { x: 1, y: 4, percentage: 1 }
+    ],
+    scale: 1
+  } ,
+  startOpacity: {
+    type: 'BEZIER',
+    bezierPoints: [
+      { x: 0, y: 0.5, percentage: 0 },
+      { x: 1, y: 1, percentage: 0.5 },
+      { x: 1, y: 0.5, percentage: 1 }
+    ],
+    scale: 1
+  },
+  startRotation: {
+    type: 'BEZIER',
+    bezierPoints: [
+      { x: 0, y: 0, percentage: 0 },
+      { x: 0, y: 360, percentage: 0.5 },
+      { x: 1, y: 0, percentage: 1 }
+    ],
+    scale: 1
+  }, 
+   startColor: {
     min: {
       r: 0.9725490196078431,
       g: 0.050980392156862744,
@@ -92,43 +144,121 @@ const movement: ParticleSystemConfig = {
       g: 0.7803921568627451,
       b: 0.03137254901960784,
     },
-  },
+  }, 
   simulationSpace: "WORLD",
-  maxParticles: 70,
-  emission: { rateOverTime: 0, rateOverDistance: 15 },
-  shape: { sphere: { radius: 0.1 } },
+  maxParticles:  70,
+  emission: { rateOverTime:  0, rateOverDistance:{
+    type: 'BEZIER',
+    bezierPoints: [
+      { x: 0, y: 0.5, percentage: 0 },
+      { x: 1, y: 1, percentage: 1 }
+    ],
+    scale: 15
+  } },
+  shape: { sphere: { radius: 0.1  } },
   renderer: { blending: "THREE.AdditiveBlending" },
-  sizeOverLifetime: {
+   sizeOverLifetime: {
     isActive: true,
-    bezierPoints: [
-      { x: 0, y: 1, percentage: 0 },
-      { x: 0.1666, y: 0.8333 },
-      { x: 0.3333, y: 0.6666 },
-      { x: 0.5, y: 0.5, percentage: 0.5 },
-      { x: 0.6666, y: 0.3332 },
-      { x: 0.8333, y: 0.1665 },
-      { x: 1, y: 0, percentage: 1 },
-    ],
+    lifetimeCurve: 
+    {
+      type: 'BEZIER',
+      bezierPoints: [
+        { x: 0, y: 1, percentage: 0 },
+        { x: 0.1666, y: 0.8333 },
+        { x: 0.3333, y: 0.6666 },
+        { x: 0.5, y: 0.5, percentage: 0.5 },
+        { x: 0.6666, y: 0.3332 },
+        { x: 0.8333, y: 0.1665 },
+        { x: 1, y: 0, percentage: 1 },
+      ],
+      scale: 1
+    }
+  },  
+  velocityOverLifetime: {
+    isActive: false,
+    linear: {
+      x: {
+        type: 'BEZIER',
+        bezierPoints: [
+          { x: 0, y: 10, percentage: 0 },
+          { x: 0, y: -10, percentage: 0.5 },
+          { x: 1, y: 10, percentage: 1 }
+        ],
+        scale: 1
+      },
+      y:{
+        type: 'BEZIER',
+        bezierPoints: [
+          { x: 0, y: 10, percentage: 0 },
+          { x: 0, y: -10, percentage: 0.5 },
+          { x: 1, y: 10, percentage: 1 }
+        ],
+        scale: 1
+      },
+      z: {
+        type: 'BEZIER',
+        bezierPoints: [
+          { x: 0, y: 10, percentage: 0 },
+          { x: 0, y: -10, percentage: 0.5 },
+          { x: 1, y: 10, percentage: 1 }
+        ],
+        scale: 1
+      },
+    },
+     /* orbital: {
+      x: {
+        type: 'BEZIER',
+        bezierPoints: [
+          { x: 0, y: 0.1, percentage: 0 },
+          { x: 0, y: -0.1, percentage: 0.5 },
+          { x: 1, y: 0.1, percentage: 1 }
+        ],
+        scale: 1
+      },
+      y:{
+        type: 'BEZIER',
+        bezierPoints: [
+          { x: 0, y: 0.1, percentage: 0 },
+          { x: 0, y: -0.1, percentage: 0.5 },
+          { x: 1, y: 0.1, percentage: 1 }
+        ],
+        scale: 1
+      },
+      z: {
+        type: 'BEZIER',
+        bezierPoints: [
+          { x: 0, y: 0.1, percentage: 0 },
+          { x: 0, y: -0.1, percentage: 0.5 },
+          { x: 1, y: 0.1, percentage: 1 }
+        ],
+        scale: 1
+      },
+    },  */
   },
-  opacityOverLifetime: {
+   opacityOverLifetime: {
     isActive: true,
-    bezierPoints: [
-      { x: 0, y: 1, percentage: 0 },
-      { x: 0.1666, y: 0.8333 },
-      { x: 0.3333, y: 0.6666 },
-      { x: 0.5, y: 0.5, percentage: 0.5 },
-      { x: 0.6666, y: 0.3332 },
-      { x: 0.8333, y: 0.1665 },
-      { x: 1, y: 0, percentage: 1 },
-    ],
-  },
-  noise: {
+    lifetimeCurve: 
+    {
+      type: 'BEZIER',
+      bezierPoints: [
+        { x: 0, y: 1, percentage: 0 },
+        { x: 0.1666, y: 0.8333 },
+        { x: 0.3333, y: 0.6666 },
+        { x: 0.5, y: 0.5, percentage: 0.5 },
+        { x: 0.6666, y: 0.3332 },
+        { x: 0.8333, y: 0.1665 },
+        { x: 1, y: 0, percentage: 1 },
+      ],
+      scale: 1
+    }
+  },  
+   noise: {
     isActive: true,
     useRandomOffset: true,
     strength: 0.27,
     frequency: 0.114,
     positionAmount: 0.278,
-  },
+  }, 
   _editorData: {
     textureId: "GRADIENT_POINT",
     simulation: {
@@ -179,27 +309,37 @@ const destroy: ParticleSystemConfig = {
   },
   sizeOverLifetime: {
     isActive: true,
-    bezierPoints: [
-      { x: 0, y: 0.75, percentage: 0 },
-      { x: 0.2566, y: 0.85 },
-      { x: 0.1119, y: 0.8446 },
-      { x: 0.3066, y: 0.915, percentage: 0.3066 },
-      { x: 0.5833, y: 1.0149 },
-      { x: 0.7566, y: 0.915 },
-      { x: 1, y: 0.95, percentage: 1 },
-    ],
+    lifetimeCurve: 
+    {
+      type: 'BEZIER',
+      bezierPoints: [
+        { x: 0, y: 0.75, percentage: 0 },
+        { x: 0.2566, y: 0.85 },
+        { x: 0.1119, y: 0.8446 },
+        { x: 0.3066, y: 0.915, percentage: 0.3066 },
+        { x: 0.5833, y: 1.0149 },
+        { x: 0.7566, y: 0.915 },
+        { x: 1, y: 0.95, percentage: 1 },
+      ],
+      scale: 1
+    }
   },
   opacityOverLifetime: {
     isActive: true,
-    bezierPoints: [
-      { x: 0, y: 1, percentage: 0 },
-      { x: 0.1666, y: 0.8333 },
-      { x: 0.3333, y: 0.6666 },
-      { x: 0.5, y: 0.5, percentage: 0.5 },
-      { x: 0.6666, y: 0.3332 },
-      { x: 0.8333, y: 0.1665 },
-      { x: 1, y: 0, percentage: 1 },
-    ],
+    lifetimeCurve: 
+    {
+      type: 'BEZIER',
+      bezierPoints: [
+        { x: 0, y: 1, percentage: 0 },
+        { x: 0.1666, y: 0.8333 },
+        { x: 0.3333, y: 0.6666 },
+        { x: 0.5, y: 0.5, percentage: 0.5 },
+        { x: 0.6666, y: 0.3332 },
+        { x: 0.8333, y: 0.1665 },
+        { x: 1, y: 0, percentage: 1 },
+      ],
+      scale: 1
+    }
   },
   rotationOverLifetime: { min: -342.5, max: 299 },
   textureSheetAnimation: {

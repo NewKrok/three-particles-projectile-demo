@@ -1,6 +1,6 @@
 import * as THREE from "three";
 
-import { updateParticleSystems } from "@newkrok/three-particles/src/js/effects/three-particles.js";
+import { updateParticleSystems } from "@newkrok/three-particles";
 
 export const cycleData = {
   now: 0,
