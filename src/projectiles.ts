@@ -3,12 +3,12 @@ import * as THREE from "three";
 import { EffectConfig } from "./types";
 import { createParticleSystem } from "@newkrok/three-particles";
 import { cycleData } from "./base-scene";
-import { fireEffect } from "./fire-effect-config";
+import { fireEffect } from "./effect-config/fire-effect-config";
 import { gsap } from "gsap";
-import { iceEffect } from "./ice-effect-copy";
-import { lightEffect } from "./light-effect-config";
-import { rockEffect } from "./rock-effect-config";
-import { waterEffect } from "./water-effect-config";
+import { iceEffect } from "./effect-config/ice-effect-copy";
+import { lightEffect } from "./effect-config/light-effect-config";
+import { rockEffect } from "./effect-config/rock-effect-config";
+import { waterEffect } from "./effect-config/water-effect-config";
 
 export type ProjectileConfig = {
   position: THREE.Vector3;
