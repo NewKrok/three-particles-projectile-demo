@@ -58,10 +58,14 @@ document.onkeydown = (event: KeyboardEvent) => {
     Digit3: ProjectileType.ICE,
     Digit4: ProjectileType.ROCK,
     Digit5: ProjectileType.WATER,
+    Digit6: ProjectileType.NATURE,
+    Digit7: ProjectileType.DARKNESS,
+    Digit8: ProjectileType.SMOKE,
   };
   const type = codeMap[event.code as keyof typeof codeMap];
   if (!type && type !== 0) return;
-  const config = setActiveConfigByType(type);
+  setActiveConfigByType(type);
+  const config = getActiveConfig();
   projectileName.innerHTML = config.name;
 };
 

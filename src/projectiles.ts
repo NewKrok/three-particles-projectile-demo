@@ -9,6 +9,9 @@ import { iceEffect } from "./effect-config/ice-effect-copy";
 import { lightEffect } from "./effect-config/light-effect-config";
 import { rockEffect } from "./effect-config/rock-effect-config";
 import { waterEffect } from "./effect-config/water-effect-config";
+import { natureEffect } from "./effect-config/nature-effect-config";
+import { darknessEffect } from "./effect-config/darkness-effect-config";
+import { smokeEffect } from "./effect-config/smoke-effect-config";
 
 export type ProjectileConfig = {
   position: THREE.Vector3;
@@ -74,6 +77,36 @@ waterEffect.movement.map = new THREE.TextureLoader().load(
 );
 waterEffect.destroy.map = new THREE.TextureLoader().load(
   "assets/textures/circle.webp"
+);
+
+natureEffect.init.map = new THREE.TextureLoader().load(
+  "assets/textures/gradient-point.webp"
+);
+natureEffect.movement.map = new THREE.TextureLoader().load(
+  "assets/textures/gradient-point.webp"
+);
+natureEffect.destroy.map = new THREE.TextureLoader().load(
+  "assets/textures/gradient-point.webp"
+);
+
+darknessEffect.init.map = new THREE.TextureLoader().load(
+  "assets/textures/circle-burst.webp"
+);
+darknessEffect.movement.map = new THREE.TextureLoader().load(
+  "assets/textures/circle-burst.webp"
+);
+darknessEffect.destroy.map = new THREE.TextureLoader().load(
+  "assets/textures/circle-burst.webp"
+);
+
+smokeEffect.init.map = new THREE.TextureLoader().load(
+  "assets/textures/cloud.webp"
+);
+smokeEffect.movement.map = new THREE.TextureLoader().load(
+  "assets/textures/cloud.webp"
+);
+smokeEffect.destroy.map = new THREE.TextureLoader().load(
+  "assets/textures/cloud.webp"
 );
 
 let projectiles: Array<Projectile> = [];
