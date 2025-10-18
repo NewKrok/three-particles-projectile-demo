@@ -19,10 +19,10 @@ const stats = new Stats();
 document.body.appendChild(stats.dom);
 
 const weapon = new THREE.Object3D();
-weapon.position.set(0, 1, 2);
+weapon.position.set(0, 1, 4);
 scene.add(weapon);
 
-const weaponMaterial = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+const weaponMaterial = new THREE.MeshPhongMaterial({ color: 0xa69ad2 });
 
 const weaponBaseGeometry = new THREE.SphereGeometry(0.25, 16, 16);
 const weaponBase = new THREE.Mesh(weaponBaseGeometry, weaponMaterial);
