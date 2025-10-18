@@ -17,7 +17,7 @@
     "build": "webpack --config ./webpack.prod.js"
   },
   "devDependencies": {
-    "@newkrok/three-particles": "file:../three-particles",
+    "@newkrok/three-particles": "^2.2.0",
     "@types/express": "^5.0.1",
     "@types/node": "^24.8.1",
     "@types/three": "^0.180.0",
