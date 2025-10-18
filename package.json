@@ -17,10 +17,10 @@
     "build": "webpack --config ./webpack.prod.js"
   },
   "devDependencies": {
-    "@newkrok/three-particles": "^2.1.0",
+    "@newkrok/three-particles": "file:../three-particles",
     "@types/express": "^5.0.1",
     "@types/node": "^24.8.1",
-    "@types/three": "^0.177.0",
+    "@types/three": "^0.180.0",
     "copy-webpack-plugin": "^13.0.0",
     "gsap": "^3.12.7",
     "html-webpack-plugin": "^5.6.3",
@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "express": "^5.1.0",
-    "three": "^0.177.0"
+    "three": "^0.180.0"
   }
 }
