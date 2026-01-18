@@ -6,6 +6,7 @@ import { waterEffect } from "./effect-config/water-effect-config";
 import { natureEffect } from "./effect-config/nature-effect-config";
 import { darknessEffect } from "./effect-config/darkness-effect-config";
 import { smokeEffect } from "./effect-config/smoke-effect-config";
+import { rainbowEffect } from "./effect-config/rainbow-effect-config";
 
 export enum ProjectileType {
   FIRE,
@@ -16,6 +17,7 @@ export enum ProjectileType {
   NATURE,
   DARKNESS,
   SMOKE,
+  RAINBOW,
 }
 
 const typeMap = {
@@ -27,6 +29,7 @@ const typeMap = {
   [ProjectileType.NATURE]: natureEffect,
   [ProjectileType.DARKNESS]: darknessEffect,
   [ProjectileType.SMOKE]: smokeEffect,
+  [ProjectileType.RAINBOW]: rainbowEffect,
 };
 
 const activeType = ProjectileType.FIRE;

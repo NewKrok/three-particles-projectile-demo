@@ -61,6 +61,7 @@ document.onkeydown = (event: KeyboardEvent) => {
     Digit6: ProjectileType.NATURE,
     Digit7: ProjectileType.DARKNESS,
     Digit8: ProjectileType.SMOKE,
+    Digit9: ProjectileType.RAINBOW,
   };
   const type = codeMap[event.code as keyof typeof codeMap];
   if (!type && type !== 0) return;

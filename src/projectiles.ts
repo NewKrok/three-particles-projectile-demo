@@ -12,6 +12,7 @@ import { waterEffect } from "./effect-config/water-effect-config";
 import { natureEffect } from "./effect-config/nature-effect-config";
 import { darknessEffect } from "./effect-config/darkness-effect-config";
 import { smokeEffect } from "./effect-config/smoke-effect-config";
+import { rainbowEffect } from "./effect-config/rainbow-effect-config";
 
 export type ProjectileConfig = {
   position: THREE.Vector3;
@@ -107,6 +108,16 @@ smokeEffect.movement.map = new THREE.TextureLoader().load(
 );
 smokeEffect.destroy.map = new THREE.TextureLoader().load(
   "assets/textures/cloud.webp"
+);
+
+rainbowEffect.init.map = new THREE.TextureLoader().load(
+  "assets/textures/gradient-point.webp"
+);
+rainbowEffect.movement.map = new THREE.TextureLoader().load(
+  "assets/textures/gradient-point.webp"
+);
+rainbowEffect.destroy.map = new THREE.TextureLoader().load(
+  "assets/textures/gradient-point.webp"
 );
 
 let projectiles: Array<Projectile> = [];
