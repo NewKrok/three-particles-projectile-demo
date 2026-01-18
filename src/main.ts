@@ -7,6 +7,7 @@ import {
 } from "./projectile-selector";
 import { createProjectile, updateProjectiles } from "./projectiles";
 import { createScene, createWorld, cycleData } from "./base-scene";
+import { cameraShake } from "./camera-shake";
 
 import Stats from "three/examples/jsm/libs/stats.module.js";
 import { createParticleSystem } from "@newkrok/three-particles";
@@ -14,6 +15,8 @@ import { gsap } from "gsap";
 
 const { scene, camera } = createScene();
 const { children } = createWorld(scene);
+
+cameraShake.setCamera(camera);
 
 const stats = new Stats();
 document.body.appendChild(stats.dom);
@@ -50,6 +53,13 @@ const projectileName: Element = document.querySelector(
 document.onkeydown = (event: KeyboardEvent) => {
   if (event.code === "Space") {
     useAutoFire = !useAutoFire;
+    return;
+  }
+  if (event.code === "KeyS") {
+    cameraShake.setEnabled(!cameraShake.getEnabled());
+    console.log(
+      `Camera shake ${cameraShake.getEnabled() ? "enabled" : "disabled"}`
+    );
     return;
   }
   const codeMap = {
@@ -103,6 +113,8 @@ const shoot = () => {
     repeat: 1,
   });
 
+  cameraShake.trigger(0.05, 0.25);
+
   gsap.delayedCall(5, () => projectile?.dispose());
 };
 
@@ -113,6 +125,8 @@ let lastAutoFireTime = 0;
 const step = () => {
   stats.update();
   requestAnimationFrame(step);
+
+  cameraShake.update(cycleData.delta);
 
   if (useAutoFire) {
     autoFireVector.set(

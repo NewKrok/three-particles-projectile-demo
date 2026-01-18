@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { EffectConfig } from "./types";
 import { createParticleSystem } from "@newkrok/three-particles";
 import { cycleData } from "./base-scene";
+import { cameraShake } from "./camera-shake";
 import { fireEffect } from "./effect-config/fire-effect-config";
 import { gsap } from "gsap";
 import { iceEffect } from "./effect-config/ice-effect-copy";
@@ -173,6 +174,9 @@ export const updateProjectiles = ({
     ) {
       projectiles = projectiles.filter((p) => p !== projectile);
       projectile.mesh.position.copy(intersects[0].point);
+
+      cameraShake.trigger(0.1, 0.3);
+
       const endEffect = createParticleSystem(
         projectile.config.effect.destroy,
         cycleData.now

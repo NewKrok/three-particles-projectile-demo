@@ -137,7 +137,7 @@ export const createScene = () => {
   };
   animate();
 
-  return { scene, camera };
+  return { scene, camera, renderer, composer };
 };
 
 export const createWorld = (scene: THREE.Scene) => {
